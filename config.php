@@ -1,5 +1,5 @@
 <?php
-define('SISTEMA', 'DGI');
+define('SISTEMA', 'DiagnÃ³stico General de Ingreso');
 define('VERSION', 'v 1.0');
 define('ALIAS', '');
 define('AUTOR', 'Hugo Luis Santiago Altamirano');
@@ -13,7 +13,7 @@ define('LAYOUT_AJAX', 'layout/update.tpl');
 #Login y su controlador	
 $conf['inicio'] = array(
 	#'controlador' => 'index.php',
-	#'vista' => 'usuarios/login.tpl',
+	#'vista' => 'login/default.tpl',
 	'descripcion' => '',
 	'seguridad' => false,
 	'js' => array('login.js'),
@@ -37,7 +37,7 @@ $conf['panel'] = array(
 $conf['admonUsuarios'] = array(
 	'controlador' => 'usuarios.php',
 	'vista' => 'administracion/usuarios/panel.tpl',
-	'descripcion' => 'Administración de usuarios',
+	'descripcion' => 'AdministraciÃ³n de usuarios',
 	'seguridad' => true,
 	'js' => array('usuario.class.js', 'usuarios.js'),
 	'capa' => LAYOUT_DEFECTO);
@@ -45,7 +45,7 @@ $conf['admonUsuarios'] = array(
 $conf['usuarioAdd'] = array(
 	'controlador' => 'usuarios.php',
 	'vista' => 'administracion/usuarios/add.tpl',
-	'descripcion' => 'Administración de usuarios',
+	'descripcion' => 'AdministraciÃ³n de usuarios',
 	'seguridad' => true,
 	'js' => array('usuario.class.js', 'usuarios.js'),
 	'capa' => LAYOUT_DEFECTO);

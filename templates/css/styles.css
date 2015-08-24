@@ -1,5 +1,7 @@
 .navbar-static-top {
-  margin-bottom:20px;
+	margin-bottom:20px;
+	background-color: #53964b;
+	color: white;
 }
 
 i {
@@ -20,7 +22,6 @@ footer {
   font-size: 10px;
   font-weight: normal;
   background: rgba(41,200,41,0.75);
-  color: rgb(255,255,255);
   line-height: 1em;
   padding: 2px 4px;
   -webkit-border-radius: 10px;
