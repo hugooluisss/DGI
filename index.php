@@ -56,6 +56,7 @@ define('COMPILE', 'librerias/smarty/repositorio/compile/');
 require_once('librerias/smarty/Smarty.class.php');
 $smarty = new Smarty;
 $smarty->debugging = (strtoupper($ini['sistema']['debug']) == 'ON');
+$smarty->debugging = false;
 $smarty->caching = (strtoupper($ini['sistema']['caching']) == 'ON');
 $smarty->cache_lifetime = 120;
 
@@ -69,7 +70,7 @@ $datosPlantilla = array(
 	"css" => DIR_PLANTILLAS."/css/",
 	"iconos" => DIR_PLANTILLAS."/iconos/",
 	"sesion" => $_SESSION[SISTEMA],
-	"debug" => $ini['sistema']['debug'] == 1,
+	"debug" => strtoupper($ini['sistema']['debug']) == "ON",
 	"sesionIniciada" => $bandSesion?'1':'0',
 	"vista" => $objModulo->getRutaVista(),
 	"nombreAplicacion" => SISTEMA,
