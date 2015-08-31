@@ -1,11 +1,11 @@
 <?php
-Class TUsuario extends TTrabajador{
+class TUsuario extends TTrabajador{
 	private $navegador;
 	private $versionNavegador;
 	private $sistemaOperativo;
 	
 	public function TUsuario($id = ''){
-		$this->TTrabajador($id);
+		parent::TTrabajador($id);
 		
 		$browser=array("IE","OPERA","MOZILLA","NETSCAPE","FIREFOX","SAFARI","CHROME");
 		$os=array("WIN","MAC","LINUX");
@@ -35,18 +35,36 @@ Class TUsuario extends TTrabajador{
 	}
 	
 	public function getSistemaOperativo(){
-		if ($this->trabajador == '') return '';
+		if ($this->getId() == '') return '';
 		return $this->sistemaOperativo;
 	}
 	
 	public function getVersionNavegador(){
-		if ($this->trabajador == '') return '';
+		if ($this->getId() == '') return '';
 		return $this->versionNavegador;
 	}
 	
 	public function getNavegador(){
-		if ($this->trabajador == '') return '';
+		if ($this->getId() == '') return '';
 		return $this->navegador;
+	}
+	
+	public function add(){
+		if ($this->getId() == '') return false;
+		
+		$db = TBase::conectaDB();
+		$rs = $db->Execute("INSERT INTO usuario(num_personal, alta, ultAcceso) VALUES(".$this->getId().", now(), null);");
+		
+		return $rs?true:false;
+	}
+	
+	public function del(){
+		if ($this->getId() == '') return false;
+		
+		$db = TBase::conectaDB();
+		$rs = $db->Execute("delete from usuario where num_personal = ".$this->getId()."");
+		
+		return $rs?true:false;
 	}
 }
 ?>

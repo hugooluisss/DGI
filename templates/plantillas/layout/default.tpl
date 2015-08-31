@@ -29,7 +29,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	</head>
-	<body class="hold-transition skin-green sidebar-mini">
+	<body class="hold-transition skin-green-light sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
 			<!-- Logo -->
@@ -109,7 +109,7 @@
 							<i class="fa fa-cogs"></i> <span>Administración</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="#"><i class="fa fa-user"></i> Usuarios</a></li>
+							<li class="active"><a href="?mod=admonUsuarios"><i class="fa fa-user"></i> Usuarios</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -123,10 +123,9 @@
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-				<h1>
-					Panel de administración
-					<small>AdminDGI</small>
-				</h1>
+				{if $PAGE.vista neq ''}
+					{include file=$PAGE.vista}
+				{/if}
 			</section>
 			<!-- Main content -->
 			<section class="content">
@@ -146,6 +145,7 @@
     <script src="{$PAGE.ruta}plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{$PAGE.ruta}plugins/jQueryUI/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="{$PAGE.ruta}plugins/jQueryUI/jquery-ui.css">
     <!-- Bootstrap 3.3.5 -->
     <script src="{$PAGE.ruta}bootstrap/js/bootstrap.min.js"></script>
     <!-- Morris.js charts -->
@@ -171,18 +171,19 @@
     <script src="{$PAGE.ruta}plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{$PAGE.ruta}dist/js/app.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{$PAGE.ruta}dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{$PAGE.ruta}dist/js/demo.js"></script>
     
-    {if $PAGE.debug}
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
-    {else}
+    <link rel="stylesheet" href="{$PAGE.ruta}plugins/datatables/dataTables.bootstrap.css">
+    <script src="{$PAGE.ruta}plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="{$PAGE.ruta}plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="{$PAGE.ruta}plugins/datatables/lenguaje/ES-mx.js"></script>
     
     {foreach from=$PAGE.scriptsJS item=script}
 		<script type="text/javascript" src="{$script}"></script>
 	{/foreach}
+    
+    {if $PAGE.debug}
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
+    {else}
     
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>

@@ -1,21 +1,16 @@
 TUsuario = function(){
 	var self = this;
 	
-	this.add = function(id, nick, nombre, email, tipo, fn){
-		$.post('?mod=cusuario&action=add', {
-				"id": id,
-				"nombre": nombre,
-				"nick": nick,
-				"email": email,
-				"tipo": tipo
-			}, function(data) {
-				if (data.band == 'false'){
-					alert(data.mensaje == ''?"Upps. Ocurrió un error al agregar al usuario":data.mensaje);
-					fn.error(data);
-				}else
-					fn.ok(data);
-			}, "json"
-		);
+	this.add = function(num_personal, fn){
+		$.post('?mod=cusuarios&action=add', {
+				"num_personal": num_personal,
+			}, function(data){
+				if (data.band == 'false')
+					console.log("Upps. Ocurrió un error al agregar al usuario " + data.mensaje);
+					
+				if (fn.after != undefined)
+					fn.after(data);
+			}, "json");
 	};
 	
 	this.setPass = function(usuario, pass, fn){

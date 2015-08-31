@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-28 13:36:37
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-31 13:13:47
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:86087753755784df4f34a24-17731746%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:200058433755e4995bd4c484-25432014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1440784235,
+      1 => 1441040081,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '86087753755784df4f34a24-17731746',
+  'nocache_hash' => '200058433755e4995bd4c484-25432014',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_55784df5074085_06894637',
   'variables' => 
   array (
     'PAGE' => 0,
     'script' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_55e4995c01eac4_35789668',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_55784df5074085_06894637')) {function content_55784df5074085_06894637($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_55e4995c01eac4_35789668')) {function content_55e4995c01eac4_35789668($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="utf-8">
@@ -66,7 +66,7 @@ plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	</head>
-	<body class="hold-transition skin-green sidebar-mini">
+	<body class="hold-transition skin-green-light sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
 			<!-- Logo -->
@@ -146,7 +146,7 @@ plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 							<i class="fa fa-cogs"></i> <span>Administración</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="#"><i class="fa fa-user"></i> Usuarios</a></li>
+							<li class="active"><a href="?mod=admonUsuarios"><i class="fa fa-user"></i> Usuarios</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -160,10 +160,10 @@ plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-				<h1>
-					Panel de administración
-					<small>AdminDGI</small>
-				</h1>
+				<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['vista']!=''){?>
+					<?php echo $_smarty_tpl->getSubTemplate ($_smarty_tpl->tpl_vars['PAGE']->value['vista'], $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
+				<?php }?>
 			</section>
 			<!-- Main content -->
 			<section class="content">
@@ -187,6 +187,8 @@ plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/jQueryUI/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/jQueryUI/jquery-ui.css">
     <!-- Bootstrap 3.3.5 -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 bootstrap/js/bootstrap.min.js"></script>
@@ -224,16 +226,15 @@ plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 dist/js/app.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-dist/js/demo.js"></script>
     
-    <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['debug']){?>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
-    <?php }else{ ?>
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/datatables/dataTables.bootstrap.css">
+    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/datatables/lenguaje/ES-mx.js"></script>
     
     <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -243,6 +244,10 @@ $_smarty_tpl->tpl_vars['script']->_loop = true;
 		<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['script']->value;?>
 "></script>
 	<?php } ?>
+    
+    <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['debug']){?>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
+    <?php }else{ ?>
     
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
