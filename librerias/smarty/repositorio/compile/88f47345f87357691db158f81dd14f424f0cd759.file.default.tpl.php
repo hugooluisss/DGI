@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-26 09:25:39
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-28 13:36:37
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:86087753755784df4f34a24-17731746%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1440597696,
+      1 => 1440784235,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'PAGE' => 0,
+    'script' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -234,6 +235,14 @@ dist/js/demo.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
     <?php }else{ ?>
     
+    <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['script']->key => $_smarty_tpl->tpl_vars['script']->value){
+$_smarty_tpl->tpl_vars['script']->_loop = true;
+?>
+		<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['script']->value;?>
+"></script>
+	<?php } ?>
     
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>

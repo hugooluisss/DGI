@@ -38,13 +38,13 @@
 			</div><!-- /.login-logo -->
 		<div class="login-box-body">
 			<p class="login-box-msg">Identificate para iniciar sesión</p>
-			<form action="../../index2.html" method="post">
+			<form action="#" id="frmLogin" method="post">
 				<div class="form-group has-feedback">
-					<input type="email" class="form-control" placeholder="CURP">
+					<input type="text" class="form-control" placeholder="CURP" id="txtUsuario" name="txtUsuario">
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="password" class="form-control" placeholder="NIP o contraseña">
+					<input type="password" class="form-control" placeholder="NIP o contraseña" id="txtPass" name="txtPass">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<div class="row">
@@ -65,8 +65,7 @@
     <!-- Bootstrap 3.3.5 -->
     <script src="{$PAGE.ruta}bootstrap/js/bootstrap.min.js"></script>
     <!-- Morris.js charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="{$PAGE.ruta}plugins/morris/morris.min.js"></script>
+    
     <!-- Sparkline -->
     <script src="{$PAGE.ruta}plugins/sparkline/jquery.sparkline.min.js"></script>
     <!-- jvectormap -->
@@ -87,16 +86,18 @@
     <script src="{$PAGE.ruta}plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{$PAGE.ruta}dist/js/app.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{$PAGE.ruta}dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{$PAGE.ruta}dist/js/demo.js"></script>
+    <script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.js"></script>
+    
+    {foreach from=$PAGE.scriptsJS item=script}
+		<script type="text/javascript" src="{$script}"></script>
+	{/foreach}
     
     {if $PAGE.debug}
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
     {else}
     
     
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button);

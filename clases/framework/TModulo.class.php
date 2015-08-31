@@ -29,7 +29,20 @@ class TModulo{
 		$this->idModulo = $id;
 		$this->categoria = $conf[$id]["categoria"] == ''?"Sin especificar":$conf[$id]["categoria"];
 		$this->seguridad = $conf[$id]["seguridad"];
-		$this->scriptsJS = $conf[$id]["js"] == ''?array():$conf[$id]["js"];
+		$this->scriptsJS = array();
+		
+		if (isset($conf[$id]['js'])){
+			foreach($conf[$id]['js'] as $key => $val)
+				$conf[$id]['js'][$key] = "javascript/".$val;
+			$this->scriptsJS = array_merge($this->scriptsJS, $conf[$id]['js']);
+		}
+		
+		if (isset($conf[$id]['jsTemplate'])){
+			foreach($conf[$id]['jsTemplate'] as $key => $val)
+				$conf[$id]['jsTemplate'][$key] = "templates/javascript/".$val;
+			$this->scriptsJS = array_merge($this->scriptsJS, $conf[$id]['jsTemplate']);
+		}
+			
 		if ($conf[$id]["vista"] <> '') $this->setVista($conf[$id]["vista"]);
 		if ($conf[$id]["controlador"] <> '') $this->setControlador($conf[$id]["controlador"]);
 		$this->setCapa($conf[$id]["capa"]);

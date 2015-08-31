@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-08-26 09:13:23
+<?php /* Smarty version Smarty-3.1.11, created on 2015-08-28 13:17:41
          compiled from "templates/plantillas/layout/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:85112895255920495bf92e1-54682840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c5b8753aeb60af718a5f9de931383e28721a5592' => 
     array (
       0 => 'templates/plantillas/layout/login.tpl',
-      1 => 1440598400,
+      1 => 1440785860,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'PAGE' => 0,
+    'script' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -75,13 +76,13 @@ plugins/iCheck/square/blue.css">
 			</div><!-- /.login-logo -->
 		<div class="login-box-body">
 			<p class="login-box-msg">Identificate para iniciar sesión</p>
-			<form action="../../index2.html" method="post">
+			<form action="#" id="frmLogin" method="post">
 				<div class="form-group has-feedback">
-					<input type="email" class="form-control" placeholder="CURP">
+					<input type="text" class="form-control" placeholder="CURP" id="txtUsuario" name="txtUsuario">
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="password" class="form-control" placeholder="NIP o contraseña">
+					<input type="password" class="form-control" placeholder="NIP o contraseña" id="txtPass" name="txtPass">
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<div class="row">
@@ -105,9 +106,7 @@ plugins/jQueryUI/jquery-ui.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 bootstrap/js/bootstrap.min.js"></script>
     <!-- Morris.js charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-plugins/morris/morris.min.js"></script>
+    
     <!-- Sparkline -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/sparkline/jquery.sparkline.min.js"></script>
@@ -138,18 +137,24 @@ plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 dist/js/app.min.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-dist/js/demo.js"></script>
+    <script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/validate/validate.js"></script>
+    
+    <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['script']->key => $_smarty_tpl->tpl_vars['script']->value){
+$_smarty_tpl->tpl_vars['script']->_loop = true;
+?>
+		<script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['script']->value;?>
+"></script>
+	<?php } ?>
     
     <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['debug']){?>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
     <?php }else{ ?>
     
     
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button);

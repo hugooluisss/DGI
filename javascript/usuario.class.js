@@ -35,10 +35,24 @@ TUsuario = function(){
 		$.post('?mod=cusuario&action=del', {
 			"usuario": usuario,
 		}, function(data){
+			if (fn.after != undefined)
+				fn.after(data);
 			if (data.band == 'false'){
 				alert("Ocurrió un error al eliminar al usuario");
-			}else{
-				fn.ok(data);
+			}
+		}, "json");
+	};
+	
+	this.login = function(usuario, pass, fn){
+		$.post('?mod=clogin&action=login', {
+			"usuario": usuario,
+			"pass": pass
+		}, function(data){
+			if (fn.after != undefined)
+				fn.after(data);
+				
+			if (data.band == 'false'){
+				console.log("Los datos del usuario no son válidos");
 			}
 		}, "json");
 	}

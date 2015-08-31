@@ -180,6 +180,9 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
     {else}
     
+    {foreach from=$PAGE.scriptsJS item=script}
+		<script type="text/javascript" src="{$script}"></script>
+	{/foreach}
     
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>

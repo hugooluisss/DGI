@@ -12,12 +12,11 @@ define('LAYOUT_AJAX', 'layout/update.tpl');
 
 #Login y su controlador	
 $conf['inicio'] = array(
-	#'controlador' => 'index.php',
-	#'vista' => 'login/default.tpl',
 	'descripcion' => '',
 	'seguridad' => false,
-	'js' => array('login.js'),
-	'capa' => 'layout/default.tpl');
+	'js' => array('usuario.class.js'),
+	'jsTemplate' => array('login.js'),
+	'capa' => 'layout/login.tpl');
 	
 #Login y su controlador	
 $conf['clogin'] = array(
@@ -27,7 +26,7 @@ $conf['clogin'] = array(
 	'capa' => LAYOUT_AJAX);
 	
 $conf['panel'] = array(
-	'controlador' => 'index.php',
+	#'controlador' => 'index.php',
 	'vista' => 'usuarios/panel.tpl',
 	'descripcion' => 'Vista del panel',
 	'seguridad' => true,

@@ -2,27 +2,26 @@
 global $objModulo;
 
 switch($objModulo->getAction()){
-	case 'iniciar': case 'validarCredenciales':
-		$db = TBase::conectaDB();
+	case 'login': case 'validarCredenciales':
+		$db = TBase::conectaDB("sip");
 		
-		$rs = $db->Execute("select idUsuario, pass from usuario where upper(nick) = upper('".$_POST['usuario']."')");
+		
+		$rs = $db->Execute("select num_personal, nip from ficha_personal where upper(curp) = upper('".$_POST['usuario']."') and estatus_laboral = 1");
 		
 		$result = array('band' => false, 'mensaje' => 'Error al consultar los datos');
 		if($rs->EOF)
-			$result = array('band' => false, 'mensaje' => 'El usuario no es válido'); 
-		elseif($rs->fields['pass'] <> md5($_POST['pass']))
-			$result = array('band' => false, 'mensaje' => 'La contraseña no es válida');
+			$result = array('band' => false, 'mensaje' => 'La CURP no es válida'); 
+		elseif(strtoupper($rs->fields['nip']) <> strtoupper($_POST['pass']))
+			$result = array('band' => false, 'mensaje' => 'NIP inválido');
 		else
 			$result = array('band' => true);
 		
 		if($result['band']){
-			$obj = new TUsuario($rs->fields['idUsuario']);
-			$sesion['usuario'] = 		$rs->fields['idUsuario'];
+			$obj = new TUsuario($rs->fields['num_personal']);
+			$sesion['usuario'] = 		$obj->getId();
 			$sesion['navegador'] = 			$obj->getNavegador();
 			$sesion['sistemaOperativo'] = 	$obj->getSistemaOperativo();
 			$_SESSION[SISTEMA] = $sesion;
-			
-			$obj->setUltimoAcceso();
 		}
 		
 		echo json_encode($result);
