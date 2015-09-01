@@ -13,6 +13,7 @@ class TTrabajador{
 	private $tel_casa;
 	private $tel_recados;
 	private $foto;
+	private $curp;
 	private $rfc;
 	
 	public function TTrabajador($id = ""){
@@ -26,7 +27,7 @@ class TTrabajador{
 		
 		$db = TBase::conectaDB("sip");
 		
-		$rs = $db->Execute("select nombres, apellido_p, apellido_m, num_personal, nip, estatus_laboral, id_plantel, correo_pers, nombre_plaza, foto, tel_casa, tel_celular, tel_recados, rfc from ficha_personal where num_personal = ".$id);
+		$rs = $db->Execute("select nombres, apellido_p, apellido_m, num_personal, nip, estatus_laboral, id_plantel, correo_pers, nombre_plaza, foto, tel_casa, tel_celular, tel_recados, rfc, curp from ficha_personal where num_personal = ".$id);
 		
 		foreach($rs->fields as $key => $val){
 			switch($key){
@@ -89,6 +90,10 @@ class TTrabajador{
 	
 	public function getNombrePlaza(){
 		return $this->nombre_plaza;
+	}
+	
+	public function getCURP(){
+		return $this->curp;
 	}
 	
 	public function getCorreo(){

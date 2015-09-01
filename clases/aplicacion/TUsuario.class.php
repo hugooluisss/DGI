@@ -53,7 +53,7 @@ class TUsuario extends TTrabajador{
 		if ($this->getId() == '') return false;
 		
 		$db = TBase::conectaDB();
-		$rs = $db->Execute("INSERT INTO usuario(num_personal, alta, ultAcceso) VALUES(".$this->getId().", now(), null);");
+		$rs = $db->Execute("INSERT INTO usuario(num_personal, idTipo, alta, ultAcceso) VALUES(".$this->getId().", 2, now(), null);");
 		
 		return $rs?true:false;
 	}

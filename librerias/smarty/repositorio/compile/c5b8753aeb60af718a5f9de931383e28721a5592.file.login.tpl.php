@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-01 09:32:04
-         compiled from "templates/plantillas/layout/default.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:200058433755e4995bd4c484-25432014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-01 08:17:15
+         compiled from "templates/plantillas/layout/login.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:44077714855e5a55ba527b5-54558036%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '88f47345f87357691db158f81dd14f424f0cd759' => 
+    'c5b8753aeb60af718a5f9de931383e28721a5592' => 
     array (
-      0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1441117911,
+      0 => 'templates/plantillas/layout/login.tpl',
+      1 => 1440785860,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '200058433755e4995bd4c484-25432014',
+  'nocache_hash' => '44077714855e5a55ba527b5-54558036',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_55e4995c01eac4_35789668',
   'variables' => 
   array (
     'PAGE' => 0,
     'script' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_55e5a55c009e23_56575319',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_55e4995c01eac4_35789668')) {function content_55e4995c01eac4_35789668($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_55e5a55c009e23_56575319')) {function content_55e5a55c009e23_56575319($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="utf-8">
@@ -57,6 +57,9 @@ plugins/datepicker/datepicker3.css">
 plugins/daterangepicker/daterangepicker-bs3.css">
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+		
+		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/iCheck/square/blue.css">
 	<?php }else{ ?>
 	<?php }?>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -66,121 +69,30 @@ plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	</head>
-	<body class="hold-transition skin-green-light sidebar-mini">
-	<div class="wrapper">
-		<header class="main-header">
-			<!-- Logo -->
-			<a href="#" class="logo">
-				<!-- mini logo for sidebar mini 50x50 pixels -->
-				<span class="logo-mini"><b>D</b>GI</span>
-				<!-- logo for regular state and mobile devices -->
-				<span class="logo-lg"><b>Admin</b>DGI</span>
-			</a>
-			<!-- Header Navbar: style can be found in header.less -->
-			<nav class="navbar navbar-static-top" role="navigation">
-				<!-- Sidebar toggle button-->
-				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-					<span class="sr-only">Toggle navigation</span>
-				</a>
-				<div class="navbar-custom-menu">
-					<ul class="nav navbar-nav">
-						<!-- Messages: style can be found in dropdown.less-->
-						<li class="dropdown messages-menu">
-							<!-- Notifications: style can be found in dropdown.less -->
-							<li class="dropdown notifications-menu">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="fa fa-bell-o"></i>
-									<span class="label label-warning">10</span>
-								</a>
-								<ul class="dropdown-menu">
-									<li class="header">You have 10 notifications</li>
-									<li>
-									<!-- inner menu: contains the actual data -->
-									<ul class="menu">
-										<li>
-											<a href="#">
-												<i class="fa fa-users text-aqua"></i> 5 new members joined today
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-users text-red"></i> 5 new members joined
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-shopping-cart text-green"></i> 25 sales made
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-user text-red"></i> You changed your username
-											</a>
-										</li>
-									</ul>
-								</li>
-								<li class="footer"><a href="#">View all</a></li>
-							</ul>
-						</li>
-					</ul>
+	<body class="hold-transition login-page">
+		<div class="login-box">
+			<div class="login-logo">
+				<a href="index.php"><b>Admin</b>DGI</a>
+			</div><!-- /.login-logo -->
+		<div class="login-box-body">
+			<p class="login-box-msg">Identificate para iniciar sesión</p>
+			<form action="#" id="frmLogin" method="post">
+				<div class="form-group has-feedback">
+					<input type="text" class="form-control" placeholder="CURP" id="txtUsuario" name="txtUsuario">
+					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
-			</nav>
-		</header>
-		
-		
-		<!-- Left side column. contains the logo and sidebar -->
-		<aside class="main-sidebar">
-			<!-- sidebar: style can be found in sidebar.less -->
-			<section class="sidebar">
-			<!-- Sidebar user panel -->
-			<!-- sidebar menu: : style can be found in sidebar.less -->
-				<ul class="sidebar-menu">
-					<li class="header">MENÚ PRINCIPAL</li>
-					<li class="active treeview">
-						<a href="#">
-							<i class="fa fa-cogs"></i> <span>Administración</span> <i class="fa fa-angle-left pull-right"></i>
-						</a>
-						<ul class="treeview-menu">
-							<li class="active"><a href="?mod=admonUsuarios"><i class="fa fa-user"></i> Usuarios</a></li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-			<!-- /.sidebar -->
-		</aside>
-		
-		
-		
-		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
-			<section class="content-header">
-			</section>
-			<!-- Main content -->
-			<section class="content">
+				<div class="form-group has-feedback">
+					<input type="password" class="form-control" placeholder="NIP o contraseña" id="txtPass" name="txtPass">
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+				</div>
 				<div class="row">
-					<div class="col-lg-12">
-					<?php if ($_smarty_tpl->tpl_vars['PAGE']->value['vista']!=''){?>
-						<?php echo $_smarty_tpl->getSubTemplate ($_smarty_tpl->tpl_vars['PAGE']->value['vista'], $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
-
-					<?php }?>
-					</div>
+					<!-- /.col -->
+					<div class="col-xs-offset-8 col-xs-4">
+						<button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar</button>
+					</div><!-- /.col -->
 				</div>
-			</section><!-- /.content -->
-		</div><!-- /.content-wrapper -->
-		<footer class="main-footer">
-			<div class="pull-right hidden-xs">
-				<b>Versión</b> <?php echo $_smarty_tpl->tpl_vars['PAGE']->value['version'];?>
-
-			</div>
-			<strong>Copyright &copy; <?php echo date("Y");?>
- <a href="http://iebo.edu.mx">IEBO</a>.</strong> Todos los derechos reservados
-		</footer>
+			</form>		
+		</div><!-- /.login-box-body -->
 	</div>
     
     
@@ -190,15 +102,11 @@ plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/jQueryUI/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-plugins/jQueryUI/jquery-ui.css">
     <!-- Bootstrap 3.3.5 -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 bootstrap/js/bootstrap.min.js"></script>
     <!-- Morris.js charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-plugins/morris/morris.min.js"></script>
+    
     <!-- Sparkline -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/sparkline/jquery.sparkline.min.js"></script>
@@ -229,15 +137,8 @@ plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 dist/js/app.min.js"></script>
-    
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-plugins/datatables/dataTables.bootstrap.css">
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-plugins/datatables/lenguaje/ES-mx.js"></script>
+    <script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/validate/validate.js"></script>
     
     <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -252,6 +153,8 @@ $_smarty_tpl->tpl_vars['script']->_loop = true;
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.3.1/less.min.js" type="text/javascript"></script>
     <?php }else{ ?>
     
+    
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button);

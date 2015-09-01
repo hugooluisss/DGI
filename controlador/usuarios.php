@@ -8,11 +8,20 @@ switch($objModulo->getId()){
 		$rs = $db->Execute("select num_personal from usuario");
 		$datos = array();
 		while(!$rs->EOF){
-			array_push($datos, new TUsuario($rs->fields['num_personal']));
+			$obj = new TTrabajador($rs->fields['num_personal']);
+			
+			array_push($datos, $obj);
 			$rs->moveNext();
 		}
-		$smarty->register_object("lista", $datos);
-		//$smarty->assign("lista", $datos);
+		$smarty->assign("lista", $datos);
+		
+		$rs = $db->Execute("select * from tipoUsuario");
+		$datos = array();
+		while(!$rs->EOF){
+			array_push($datos, $rs->fields);
+			$rs->moveNext();
+		}
+		$smarty->assign("tipoUsuario", $datos);
 	break;
 	case 'cusuarios':
 		switch($objModulo->getAction()){
@@ -47,6 +56,10 @@ switch($objModulo->getId()){
 				$obj = new TUsuario($_POST['num_personal']);
 				
 				echo json_encode(array("band" => $obj->add()));
+			break;
+			case 'del':
+				$obj = new TUsuario($_POST['usuario']);
+				echo json_encode(array("band" => $obj->del()));
 			break;
 		}
 	break;

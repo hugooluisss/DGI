@@ -123,13 +123,16 @@
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-				{if $PAGE.vista neq ''}
-					{include file=$PAGE.vista}
-				{/if}
 			</section>
 			<!-- Main content -->
 			<section class="content">
-			
+				<div class="row">
+					<div class="col-lg-12">
+					{if $PAGE.vista neq ''}
+						{include file=$PAGE.vista}
+					{/if}
+					</div>
+				</div>
 			</section><!-- /.content -->
 		</div><!-- /.content-wrapper -->
 		<footer class="main-footer">

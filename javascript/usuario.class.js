@@ -27,7 +27,7 @@ TUsuario = function(){
 	};
 	
 	this.del = function(usuario, fn){
-		$.post('?mod=cusuario&action=del', {
+		$.post('?mod=cusuarios&action=del', {
 			"usuario": usuario,
 		}, function(data){
 			if (fn.after != undefined)

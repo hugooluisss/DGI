@@ -28,18 +28,24 @@ $(document).ready(function(){
 			$("#dvLista").html(data);
 			
 			$("[action=eliminar]").click(function(){
-		    	if(confirm("¿Seguro?")){
-			    	var obj = new TOrden;
-			    	obj.delItem($(this).attr("movimiento"), {ok: function(){
-				    	getMovimientos($("#orden").val());
-			    	}});
-		    	}
-		    });
-		    
-		    $('#tblUsuarios').DataTable({
+				if(confirm("¿Seguro?")){
+					var obj = new TUsuario;
+					obj.del($(this).attr("trabajador"), {
+						after: function(data){
+							getLista();
+						}
+					});
+				}
+			});
+			
+			$("#tblUsuarios").DataTable({
 				"responsive": true,
 				"language": espaniol,
-				paging: false
+				"paging": true,
+				"lengthChange": false,
+				"ordering": true,
+				"info": true,
+				"autoWidth": false
 			});
 		});
 	}
