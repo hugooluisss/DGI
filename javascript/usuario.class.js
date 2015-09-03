@@ -14,7 +14,7 @@ TUsuario = function(){
 	};
 	
 	this.setPass = function(usuario, pass, fn){
-		$.post('?mod=cusuario&action=setPass', {
+		$.post('?mod=cusuarios&action=setPass', {
 			"usuario": usuario,
 			"pass": pass
 		}, function(data){
@@ -23,6 +23,23 @@ TUsuario = function(){
 			}else{
 				fn.ok(data);
 			}
+		}, "json");
+	};
+	
+	this.setPerfil = function(usuario, perfil, fn){
+		if (fn.before != undefined)
+			fn.before();
+			
+		$.post('?mod=cusuarios&action=setPerfil', {
+			"usuario": usuario,
+			"tipo": perfil
+		}, function(data){
+			if (fn.after != undefined)
+				fn.after(data);
+				
+			if (data.band == 'false')
+				alert("Ocurrió un error al modificar el perfil del usuario");
+				
 		}, "json");
 	};
 	

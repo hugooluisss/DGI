@@ -17,19 +17,19 @@
 			<tbody>
 				{foreach from=$lista item="row"}
 					<tr>
-						<td>{$row->getId()}</td>
-						<td>{$row->getNombreCompleto()}</td>
-						<td>{$row->getCURP()}</td>
-						<td>{$row->getPass()}</td>
+						<td>{$row["obj"]->getId()}</td>
+						<td>{$row["obj"]->getNombreCompleto()}</td>
+						<td>{$row["obj"]->getCURP()}</td>
+						<td>{$row["obj"]->getPass()}</td>
 						<td>
-							<select>
+							<select class="tipo" user="{$row['obj']->getId()}">
 								{foreach from=$tipoUsuario item="tipo"}
-								<option value="{$tipo.idTipo}">{$tipo.descripcion}
+								<option value="{$tipo.idTipo}" {if $row['user']->getTipo() eq $tipo.idTipo}selected{/if}>{$tipo.descripcion}
 								{/foreach}
 							</select>
 						</td>
 						<td style="text-align: right">
-							<button type="button" class="btn btn-danger btn-circle" action="eliminar" title="Eliminar" trabajador="{$row->getId()}"><i class="fa fa-times"></i></button>
+							<button type="button" class="btn btn-danger btn-circle" action="eliminar" title="Eliminar" trabajador="{$row['obj']->getId()}"><i class="fa fa-times"></i></button>
 						</td>
 					</tr>
 				{/foreach}

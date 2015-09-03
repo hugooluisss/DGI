@@ -38,6 +38,25 @@ $(document).ready(function(){
 				}
 			});
 			
+			$(".tipo").change(function(){
+				if (confirm("¿Seguro de hacer el cambio de perfil de usuario?")){
+					var obj = new TUsuario;
+					var el = $(this);
+					obj.setPerfil(el.attr("user"), el.val(), {
+						before: function(){
+							el.disabled = true;
+						},
+						after: function(data){
+							el.enabled = false;
+							if (data.band){
+								getLista();
+								alert("Perfil de usuario modificado");
+							}
+						}
+					});
+				}
+			});
+			
 			$("#tblUsuarios").DataTable({
 				"responsive": true,
 				"language": espaniol,

@@ -3,6 +3,7 @@ class TUsuario extends TTrabajador{
 	private $navegador;
 	private $versionNavegador;
 	private $sistemaOperativo;
+	private $tipo;
 	
 	public function TUsuario($id = ''){
 		parent::TTrabajador($id);
@@ -65,6 +66,23 @@ class TUsuario extends TTrabajador{
 		$rs = $db->Execute("delete from usuario where num_personal = ".$this->getId()."");
 		
 		return $rs?true:false;
+	}
+	
+	public function getTipo(){
+		if ($this->getId() == '') return false;
+		
+		$db = TBase::conectaDB();
+		$rs = $db->Execute("select idTipo from usuario where num_personal = ".$this->getId()."");
+		
+		return $rs->fields['idTipo'];
+	}
+	
+	public function setTipo($id = ''){
+		if ($id == '' or $this->getId() == '') return false;
+		
+		$db = TBase::conectaDB();
+		$rs = $db->Execute("update usuario set idTipo = ".$id." where num_personal = ".$this->getId()."");
+		return true;
 	}
 }
 ?>

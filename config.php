@@ -17,6 +17,14 @@ $conf['inicio'] = array(
 	'js' => array('usuario.class.js'),
 	'jsTemplate' => array('login.js'),
 	'capa' => 'layout/login.tpl');
+
+$conf['logout'] = array(
+	'controlador' => 'login.php',
+	#'vista' => 'usuarios/panel.tpl',
+	'descripcion' => 'Salir del sistema',
+	'seguridad' => false,
+	'js' => array(),
+	'capa' => LAYOUT_DEFECTO);
 	
 #Login y su controlador	
 $conf['clogin'] = array(
