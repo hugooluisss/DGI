@@ -99,7 +99,7 @@ class TExamen{
 	*/
 	
 	public function setTiempo($seg = 0){
-		$this->tiempo = $val;
+		$this->tiempo = $seg;
 		return true;
 	}
 	

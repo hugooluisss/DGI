@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-01 09:32:04
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-03 12:41:33
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:200058433755e4995bd4c484-25432014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1441117911,
+      1 => 1441302091,
       2 => 'file',
     ),
   ),
@@ -146,8 +146,11 @@ plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 							<i class="fa fa-cogs"></i> <span>Administración</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="?mod=admonUsuarios"><i class="fa fa-user"></i> Usuarios</a></li>
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='admonUsuarios'){?>class="active"<?php }?>><a href="?mod=admonUsuarios"><i class="fa fa-user"></i> Usuarios</a></li>
 						</ul>
+						<a href="?mod=examenes">
+							<li <?php if ($_smarty_tpl->tpl_vars['PAGE']->value['modulo']=='examenes'){?>class="active"<?php }?>><i class="fa fa-pencil-square-o"></i> Exámenes</li>
+						</a>
 					</li>
 				</ul>
 			</section>
@@ -226,9 +229,8 @@ plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/fastclick/fastclick.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
-dist/js/app.min.js"></script>
+    <script type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/validate/validate.js"></script>
     
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/datatables/dataTables.bootstrap.css">

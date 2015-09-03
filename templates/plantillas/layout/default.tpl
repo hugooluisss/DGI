@@ -109,8 +109,11 @@
 							<i class="fa fa-cogs"></i> <span>Administración</span> <i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="?mod=admonUsuarios"><i class="fa fa-user"></i> Usuarios</a></li>
+							<li {if $PAGE.modulo eq 'admonUsuarios'}class="active"{/if}><a href="?mod=admonUsuarios"><i class="fa fa-user"></i> Usuarios</a></li>
 						</ul>
+						<a href="?mod=examenes">
+							<li {if $PAGE.modulo eq 'examenes'}class="active"{/if}><i class="fa fa-pencil-square-o"></i> Exámenes</li>
+						</a>
 					</li>
 				</ul>
 			</section>
@@ -172,8 +175,7 @@
     <script src="{$PAGE.ruta}plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
     <script src="{$PAGE.ruta}plugins/fastclick/fastclick.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="{$PAGE.ruta}dist/js/app.min.js"></script>
+    <script type="text/javascript" src="{$PAGE.ruta}plugins/validate/validate.js"></script>
     
     <link rel="stylesheet" href="{$PAGE.ruta}plugins/datatables/dataTables.bootstrap.css">
     <script src="{$PAGE.ruta}plugins/datatables/jquery.dataTables.min.js"></script>

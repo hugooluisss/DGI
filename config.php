@@ -62,3 +62,27 @@ $conf['cusuarios'] = array(
 	'descripcion' => 'Controlador de usuarios',
 	'seguridad' => true,
 	'capa' => LAYOUT_AJAX);
+	
+/*Exámenes*/
+$conf['examenes'] = array(
+	#'controlador' => 'index.php',
+	'vista' => 'examenes/panel.tpl',
+	'descripcion' => 'Vista del panel',
+	'seguridad' => true,
+	'js' => array('examen.class.js'),
+	'jsTemplate' => array('panelExamenes.js'),
+	'capa' => LAYOUT_DEFECTO);
+	
+$conf['listaExamenes'] = array(
+	'controlador' => 'examenes.php',
+	'vista' => 'examenes/lista.tpl',
+	'descripcion' => 'Lista de exámenes',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+
+$conf['cexamenes'] = array(
+	'controlador' => 'examenes.php',
+	'descripcion' => 'Controlador de exámenes',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+?>
