@@ -85,4 +85,14 @@ $conf['cexamenes'] = array(
 	'descripcion' => 'Controlador de exámenes',
 	'seguridad' => true,
 	'capa' => LAYOUT_AJAX);
+	
+/* Reactivos */
+$conf['reactivos'] = array(
+	#'controlador' => 'index.php',
+	'vista' => 'reactivos/panel.tpl',
+	'descripcion' => 'Vista del panel',
+	'seguridad' => true,
+	'js' => array(),
+	'jsTemplate' => array('reactivos.js'),
+	'capa' => LAYOUT_DEFECTO);
 ?>

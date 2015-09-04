@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="{$PAGE.ruta}plugins/datepicker/datepicker3.css">
 		<link rel="stylesheet" href="{$PAGE.ruta}plugins/daterangepicker/daterangepicker-bs3.css">
 		<link rel="stylesheet" href="{$PAGE.ruta}plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+		<link rel="stylesheet" href="{$PAGE.ruta}plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 	{else}
 	{/if}
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -181,6 +182,8 @@
     <script src="{$PAGE.ruta}plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="{$PAGE.ruta}plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="{$PAGE.ruta}plugins/datatables/lenguaje/ES-mx.js"></script>
+    
+    <script src="{$PAGE.ruta}plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
     
     {foreach from=$PAGE.scriptsJS item=script}
 		<script type="text/javascript" src="{$script}"></script>

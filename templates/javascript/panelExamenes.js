@@ -15,7 +15,7 @@ $(document).ready(function(){
 		submitHandler: function(form){
 			var obj = new TExamen;
 			
-			tiempo = ($("#txtHoras").val() == undefined?0:$("#txtHoras").val()) * 60 + ($("#txtMinutos").val() == undefined?0:$("#txtMinutos").val());
+			tiempo = $("#selHoras").val() * 60 + $("#selMinutos").val();
 			obj.add(
 				$('#id').val(),
 				$('#txtNombre').val(),
@@ -28,8 +28,10 @@ $(document).ready(function(){
 					after: function(data){
 						$("#frmAdd").disabled = true;
 						
-						if (data.band)
+						if (data.band){
+							$("#frmAdd").get(0).reset()
 							getLista();
+						}
 					}
 				});
         }
@@ -52,14 +54,20 @@ $(document).ready(function(){
 			});
 			
 			$("[action=modificar]").click(function(){
-				var el = JSON.parse($(this).attr("datos"));
+				var el = jQuery.parseJSON($(this).attr("datos"));
 				
 				$('#id').val(el.idExamen);
 				$('#txtNombre').val(el.nombre);
 				$('#txtPeriodo').val(el.periodo);
 				$('#txtDescripcion').val(el.descripcion);
+				$("#selHoras").val(el.tiempo / 60);
+				$("#selMinutos").val(el.tiempo % 60);
 				
 				$('#txtNombre').select();
+			});
+			
+			$("[action=reactivos]").click(function(){
+				location.href = "?mod=reactivos&examen=" + $(this).attr("examen");
 			});
 						
 			$("#tblExamenes").DataTable({

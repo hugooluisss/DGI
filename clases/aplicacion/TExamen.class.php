@@ -151,7 +151,7 @@ class TExamen{
 	*/
 	
 	public function setDescripcion($val = ''){
-		$this->descripcion = $val;
+		$this->descripcion = str_replace("'", "", $val);;
 		return true;
 	}
 	

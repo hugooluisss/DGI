@@ -12,12 +12,13 @@
 			<tbody>
 				{foreach from=$lista item="row"}
 					<tr>
-						<td>{$row->getId()}</td>
-						<td>{$row->getNombre()}</td>
-						<td>{$row->getPeriodo()}</td>
+						<td>{$row.idExamen}</td>
+						<td>{$row.nombre}</td>
+						<td>{$row.periodo}</td>
 						<td style="text-align: right">
-							<button type="button" class="btn btn-default btn-circle" action="modificar" title="Modificar" examen="{$row->getId()}"><i class="fa fa-pencil"></i></button>
-							<button type="button" class="btn btn-danger btn-circle" action="eliminar" title="Eliminar" examen="{$row->getId()}"><i class="fa fa-times"></i></button>
+							<button type="button" class="btn btn-default btn-circle" action="reactivos" title="Administración de reactivos" examen="{$row.idExamen}"><i class="fa fa-file-code-o"></i></button>
+							<button type="button" class="btn btn-default btn-circle" action="modificar" title="Modificar" datos='{$row.json|escape:"htmlall"}'><i class="fa fa-pencil"></i></button>
+							<button type="button" class="btn btn-danger btn-circle" action="eliminar" title="Eliminar" examen="{$row.idExamen}"><i class="fa fa-times"></i></button>
 						</td>
 					</tr>
 				{/foreach}

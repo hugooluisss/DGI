@@ -23,12 +23,20 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="txtHoras" class="col-lg-2">Tiempo</label>
-				<div class="col-lg-2">
-					<input type="text" id="txtHoras" name="txtHoras" class="form-control" autocomplete="false">
+				<label for="txtHoras" class="col-lg-2">Tiempo (HH:MM)</label>
+				<div class="col-lg-1">
+					<select id="selHoras" name="selHoras" class="form-control">
+						{section loop=24 name=cont}
+							<option value={$smarty.section.cont.index}>{$smarty.section.cont.index|string_format: "%02d"}
+						{/section}
+					</select>
 				</div>
-				<div class="col-lg-2">
-					<input type="text" id="txtMinutos" name="txtMinutos" class="form-control" autocomplete="false">
+				<div class="col-lg-1">
+					<select id="selMinutos" name="selMinutos" class="form-control">
+						{section loop=60 name=cont}
+							<option value={$smarty.section.cont.index}>{$smarty.section.cont.index|string_format: "%02d"}
+						{/section}
+					</select>
 				</div>
 			</div>
 			<div class="form-group">
@@ -41,6 +49,7 @@
 		<div class="box-footer">
 			<button type="button" class="btn btn-default">Cancelar</button>
 			<button type="submit" class="btn btn-info pull-right">Guardar</button>
+			<input type="hidden" id="id"/>
 		</div>
 	</div>
 </form>

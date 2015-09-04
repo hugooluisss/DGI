@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-03 12:41:33
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-04 10:56:36
          compiled from "templates/plantillas/layout/default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:200058433755e4995bd4c484-25432014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88f47345f87357691db158f81dd14f424f0cd759' => 
     array (
       0 => 'templates/plantillas/layout/default.tpl',
-      1 => 1441302091,
+      1 => 1441382108,
       2 => 'file',
     ),
   ),
@@ -55,6 +55,8 @@ plugins/jvectormap/jquery-jvectormap-1.2.2.css">
 plugins/datepicker/datepicker3.css">
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/daterangepicker/daterangepicker-bs3.css">
+		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 	<?php }else{ ?>
@@ -240,6 +242,9 @@ plugins/datatables/jquery.dataTables.min.js"></script>
 plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
 plugins/datatables/lenguaje/ES-mx.js"></script>
+    
+    <script src="<?php echo $_smarty_tpl->tpl_vars['PAGE']->value['ruta'];?>
+plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
     
     <?php  $_smarty_tpl->tpl_vars['script'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['script']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['PAGE']->value['scriptsJS']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

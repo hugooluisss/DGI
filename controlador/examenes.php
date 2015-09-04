@@ -5,10 +5,17 @@ switch($objModulo->getId()){
 	case 'listaExamenes':
 		$db = TBase::conectaDB();
 		
-		$rs = $db->Execute("select idExamen from examen");
+		$rs = $db->Execute("select * from examen");
 		$datos = array();
 		while(!$rs->EOF){
-			array_push($datos, new TExamen($rs->fields['idExamen']));
+			$aux = array();
+			
+			foreach($rs->fields as $key => $val)
+				$aux[$key] = $val;
+
+			$aux['json'] = json_encode($aux);
+			
+			array_push($datos, $aux);
 			$rs->moveNext();
 		}
 		$smarty->assign("lista", $datos);
