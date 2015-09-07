@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-04 10:51:31
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-07 13:36:06
          compiled from "templates/plantillas/modulos/reactivos/panel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143757764955e9b9718cb9b3-96217904%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '27c5ed422f046744e271b3f0fc7e3656a23bbbca' => 
     array (
       0 => 'templates/plantillas/modulos/reactivos/panel.tpl',
-      1 => 1441381890,
+      1 => 1441650960,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.11',
   'unifunc' => 'content_55e9b971919b81_73965814',
+  'variables' => 
+  array (
+    'examen' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55e9b971919b81_73965814')) {function content_55e9b971919b81_73965814($_smarty_tpl) {?><div class="row">
@@ -28,6 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#listas">Reactivos agregados</a></li>
   <li><a data-toggle="tab" href="#add">Agregar o Modificar</a></li>
+  <li><a data-toggle="tab" href="#multimedia">Multimedia</a></li>
 </ul>
 
 <div class="tab-content">
@@ -95,4 +100,29 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['cont']['last']       = ($_sm
 			</div>
 		</form>
 	</div>
-</div><?php }} ?>
+	
+	<div id="multimedia" class="tab-pane fade">
+		<div class="box">
+			<div class="box-body">
+				<p>
+					<span class="btn btn-success fileinput-button">
+						<i class="glyphicon glyphicon-plus"></i>
+						<span>Seleccionar archivos...</span>
+						<!-- The file input field used as target for the file upload widget -->
+						<input id="fileupload" type="file" name="files[]" multiple>
+					</span>
+				</p>
+				<div id="progress" class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="box-body" id="dvListaMedios">
+			</div>
+		</div>
+	</div>
+</div>
+
+<input type="hidden" id="examen" value="<?php echo $_smarty_tpl->tpl_vars['examen']->value;?>
+"/><?php }} ?>

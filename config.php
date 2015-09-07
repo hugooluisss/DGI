@@ -88,11 +88,24 @@ $conf['cexamenes'] = array(
 	
 /* Reactivos */
 $conf['reactivos'] = array(
-	#'controlador' => 'index.php',
+	'controlador' => 'reactivos.php',
 	'vista' => 'reactivos/panel.tpl',
 	'descripcion' => 'Vista del panel',
 	'seguridad' => true,
 	'js' => array(),
 	'jsTemplate' => array('reactivos.js'),
 	'capa' => LAYOUT_DEFECTO);
+	
+$conf['creactivos'] = array(
+	'controlador' => 'reactivos.php',
+	'descripcion' => 'Controlador de reactivos',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['listaMediosReactivo'] = array(
+	'controlador' => 'reactivos.php',
+	'vista' => 'reactivos/listaMedios.tpl',
+	'descripcion' => 'Lista de imagenes reactivos',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
 ?>

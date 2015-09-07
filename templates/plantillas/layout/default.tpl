@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="{$PAGE.ruta}plugins/daterangepicker/daterangepicker-bs3.css">
 		<link rel="stylesheet" href="{$PAGE.ruta}plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 		<link rel="stylesheet" href="{$PAGE.ruta}plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+		<link rel="stylesheet" href="{$PAGE.ruta}plugins/upload/css/jquery.fileupload.css">
 	{else}
 	{/if}
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -184,6 +185,11 @@
     <script src="{$PAGE.ruta}plugins/datatables/lenguaje/ES-mx.js"></script>
     
     <script src="{$PAGE.ruta}plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="{$PAGE.ruta}plugins/upload/js/jquery.iframe-transport.js"></script>
+    <!-- The basic File Upload plugin -->
+    <script src="{$PAGE.ruta}plugins/upload/js/jquery.fileupload.js"></script>
     
     {foreach from=$PAGE.scriptsJS item=script}
 		<script type="text/javascript" src="{$script}"></script>

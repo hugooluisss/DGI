@@ -28,6 +28,7 @@ require_once('librerias/phpMailer/class.phpmailer.php');
 include('librerias/funciones.php');
 require('librerias/fpdf/fpdf.php');
 require('librerias/fpdf/tfpdf.php');
+require('librerias/upload/uploadHandler.php');
 
 ini_set("include_path", ini_get("include_path").PATH_SEPARATOR.dirname(__FILE__)."/librerias/pear/");
 includeDir("clases/framework/");

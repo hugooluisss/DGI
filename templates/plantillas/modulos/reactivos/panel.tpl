@@ -7,6 +7,7 @@
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#listas">Reactivos agregados</a></li>
   <li><a data-toggle="tab" href="#add">Agregar o Modificar</a></li>
+  <li><a data-toggle="tab" href="#multimedia">Multimedia</a></li>
 </ul>
 
 <div class="tab-content">
@@ -45,4 +46,28 @@
 			</div>
 		</form>
 	</div>
+	
+	<div id="multimedia" class="tab-pane fade">
+		<div class="box">
+			<div class="box-body">
+				<p>
+					<span class="btn btn-success fileinput-button">
+						<i class="glyphicon glyphicon-plus"></i>
+						<span>Seleccionar archivos...</span>
+						<!-- The file input field used as target for the file upload widget -->
+						<input id="fileupload" type="file" name="files[]" multiple>
+					</span>
+				</p>
+				<div id="progress" class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="box-body" id="dvListaMedios">
+			</div>
+		</div>
+	</div>
 </div>
+
+<input type="hidden" id="examen" value="{$examen}"/>
