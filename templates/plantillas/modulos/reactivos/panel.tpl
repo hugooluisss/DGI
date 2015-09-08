@@ -4,7 +4,7 @@
 	</div>
 </div>
 
-<ul class="nav nav-tabs">
+<ul id="panelTabs" class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#listas">Reactivos agregados</a></li>
   <li><a data-toggle="tab" href="#add">Agregar o Modificar</a></li>
   <li><a data-toggle="tab" href="#multimedia">Multimedia</a></li>
@@ -24,13 +24,13 @@
 					<div class="form-group">
 						<label for="txtInstrucciones" class="col-lg-2">Instrucciones</label>
 						<div class="col-lg-10">
-							<textarea id="txtInstrucciones" name="txtInstrucciones" class="form-control" rows="15"></textarea>
+							<textarea id="txtInstrucciones" name="txtInstrucciones" class="form-control" rows="15" cols=""></textarea>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="txtHoras" class="col-lg-2">Valor (puntos)</label>
+						<label for="selValor" class="col-lg-2">Valor (puntos)</label>
 						<div class="col-lg-1">
-							<select id="selHoras" name="selHoras" class="form-control">
+							<select id="selValor" name="selValor" class="form-control">
 								{section loop=11 start= 1 name=cont}
 									<option value={$smarty.section.cont.index}>{$smarty.section.cont.index}
 								{/section}
@@ -39,7 +39,7 @@
 					</div>
 				</div>
 				<div class="box-footer">
-					<button type="button" class="btn btn-default">Cancelar</button>
+					<button type="reset" id="btnReset" class="btn btn-default">Cancelar</button>
 					<button type="submit" class="btn btn-info pull-right">Guardar</button>
 					<input type="hidden" id="id"/>
 				</div>

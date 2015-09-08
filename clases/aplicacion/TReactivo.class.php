@@ -40,12 +40,12 @@ class TReactivo{
 		if ($id == '') return false;
 		
 		$db = TBase::conectaDB();
-		$rs = $db->Execute("select * from reactivo where idOpcion = ".$id);
+		$rs = $db->Execute("select * from reactivo where idReactivo = ".$id);
 		
 		foreach($rs->fields as $field => $val)
 			$this->$field = $val;
 			
-		$this->getReactivos();
+		$this->getOpciones();
 		
 		return true;
 	}
@@ -151,7 +151,7 @@ class TReactivo{
 	
 	public function guardar($examen = ''){
 		$db = TBase::conectaDB();
-		if ($reactivo == '') return false;
+		if ($examen == '') return false;
 		
 		$rs = $db->Execute("select * from examen where idExamen = ".$examen);
 		if ($rs->EOF) return false;
@@ -166,7 +166,7 @@ class TReactivo{
 		$rs = $db->Execute("UPDATE reactivo
 			SET
 				instrucciones = '".$this->instrucciones."',
-				valor = ".($this->valor == ''?0:$this->valor).",
+				valor = ".($this->valor == ''?1:$this->valor).",
 				posicion = ".($this->posicion == ''?0:$this->posicion)."
 			WHERE idReactivo = ".$this->getId());
 			

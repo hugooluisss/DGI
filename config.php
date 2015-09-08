@@ -86,13 +86,27 @@ $conf['cexamenes'] = array(
 	'seguridad' => true,
 	'capa' => LAYOUT_AJAX);
 	
+/* Medios */
+$conf['cmedios'] = array(
+	'controlador' => 'medios.php',
+	'descripcion' => 'Controlador de multimedia',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['listaMedios'] = array(
+	'controlador' => 'medios.php',
+	'vista' => 'multimedia/lista.tpl',
+	'descripcion' => 'Lista de imagenes',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
 /* Reactivos */
 $conf['reactivos'] = array(
 	'controlador' => 'reactivos.php',
 	'vista' => 'reactivos/panel.tpl',
 	'descripcion' => 'Vista del panel',
 	'seguridad' => true,
-	'js' => array(),
+	'js' => array('reactivo.class.js', 'multimedia.class.js'),
 	'jsTemplate' => array('reactivos.js'),
 	'capa' => LAYOUT_DEFECTO);
 	
@@ -102,10 +116,10 @@ $conf['creactivos'] = array(
 	'seguridad' => true,
 	'capa' => LAYOUT_AJAX);
 	
-$conf['listaMediosReactivo'] = array(
+$conf['listaReactivos'] = array(
 	'controlador' => 'reactivos.php',
-	'vista' => 'reactivos/listaMedios.tpl',
-	'descripcion' => 'Lista de imagenes reactivos',
+	'vista' => 'reactivos/lista.tpl',
+	'descripcion' => 'Lista de reactivos',
 	'seguridad' => true,
 	'capa' => LAYOUT_AJAX);
 ?>

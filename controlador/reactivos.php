@@ -9,29 +9,36 @@ switch($objModulo->getId()){
 	case 'reactivos':
 		$smarty->assign("examen", $_GET['examen']);
 	break;
-	case 'listaMediosReactivo':
-		$directorio = scandir($repositorio.$_GET['examen'].'/');
-		$imgs = array();
-		foreach($directorio as $archivo){
-			if (! ($archivo == '.' or $archivo == '..' or $archivo == 'thumbnail')){
-				$img = array();
-				$img['nombre'] = $archivo;
-				$img['miniatura'] = $url_repo."thumbnail/".$archivo;
-				$img['real'] = $url_repo.$archivo;
-				
-				array_push($imgs, $img);
-			}
+	case 'listaReactivos':
+		$db = TBase::conectaDB();
+		$rs = $db->Execute("select * from reactivo");
+		
+		$datos = array();
+		while(!$rs->EOF){
+			$rs->fields['json'] = json_encode($rs->fields);
+			
+			array_push($datos, $rs->fields);
+			
+			$rs->moveNext();
 		}
 		
-		$smarty->assign("lista", $imgs);
+		$smarty->assign("lista", $datos);
 	break;
 	case 'creactivos':
 		switch($objModulo->getAction()){
-			case 'upload':
-				$upload_handler = new UploadHandler(array(
-					"upload_dir" => $repositorio.$_GET['examen'].'/',
-					"upload_url" => 'http://localhost/repositorio/imagenes/'.$_GET['examen'].'/'
-				));
+			case 'add':
+				$obj = new TReactivo($_POST['id']);
+				$instrucciones = str_replace("'", "", $_POST['instrucciones']);
+				$instrucciones = str_replace('"', '', $instrucciones);
+				
+				$obj->setInstrucciones($instrucciones);
+				$obj->setValor($_POST['valor']);
+				
+				echo json_encode(array("band" => $obj->guardar($_POST['examen'])));
+			break;
+			case 'del':
+				$obj = new TReactivo($_POST['id']);
+				echo json_encode(array("band" => $obj->eliminar()));
 			break;
 		}
 	break;

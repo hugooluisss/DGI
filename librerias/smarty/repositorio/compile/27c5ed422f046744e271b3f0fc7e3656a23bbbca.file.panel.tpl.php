@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-07 13:36:06
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-08 12:42:43
          compiled from "templates/plantillas/modulos/reactivos/panel.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:143757764955e9b9718cb9b3-96217904%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '27c5ed422f046744e271b3f0fc7e3656a23bbbca' => 
     array (
       0 => 'templates/plantillas/modulos/reactivos/panel.tpl',
-      1 => 1441650960,
+      1 => 1441734152,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</div>
 </div>
 
-<ul class="nav nav-tabs">
+<ul id="panelTabs" class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#listas">Reactivos agregados</a></li>
   <li><a data-toggle="tab" href="#add">Agregar o Modificar</a></li>
   <li><a data-toggle="tab" href="#multimedia">Multimedia</a></li>
@@ -49,13 +49,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="form-group">
 						<label for="txtInstrucciones" class="col-lg-2">Instrucciones</label>
 						<div class="col-lg-10">
-							<textarea id="txtInstrucciones" name="txtInstrucciones" class="form-control" rows="15"></textarea>
+							<textarea id="txtInstrucciones" name="txtInstrucciones" class="form-control" rows="15" cols=""></textarea>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="txtHoras" class="col-lg-2">Valor (puntos)</label>
+						<label for="selValor" class="col-lg-2">Valor (puntos)</label>
 						<div class="col-lg-1">
-							<select id="selHoras" name="selHoras" class="form-control">
+							<select id="selValor" name="selValor" class="form-control">
 								<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['cont'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['cont']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['cont']['loop'] = is_array($_loop=11) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['cont']['start'] = (int)1;
@@ -93,7 +93,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['cont']['last']       = ($_sm
 					</div>
 				</div>
 				<div class="box-footer">
-					<button type="button" class="btn btn-default">Cancelar</button>
+					<button type="reset" id="btnReset" class="btn btn-default">Cancelar</button>
 					<button type="submit" class="btn btn-info pull-right">Guardar</button>
 					<input type="hidden" id="id"/>
 				</div>
