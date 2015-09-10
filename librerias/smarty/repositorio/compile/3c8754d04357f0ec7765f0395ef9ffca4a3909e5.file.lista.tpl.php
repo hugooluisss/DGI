@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2015-09-08 13:25:55
+<?php /* Smarty version Smarty-3.1.11, created on 2015-09-10 09:48:01
          compiled from "templates/plantillas/modulos/reactivos/lista.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:196911784255eefbb0140920-04287445%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3c8754d04357f0ec7765f0395ef9ffca4a3909e5' => 
     array (
       0 => 'templates/plantillas/modulos/reactivos/lista.tpl',
-      1 => 1441736752,
+      1 => 1441896479,
       2 => 'file',
     ),
   ),
@@ -47,16 +47,17 @@ $_smarty_tpl->tpl_vars["row"]->_loop = true;
 </td>
 						<td><?php echo preg_replace('!<[^>]*?>!', ' ', $_smarty_tpl->tpl_vars['row']->value['instrucciones']);?>
 </td>
-						<td>
-							<input type="text" value="<?php echo $_smarty_tpl->tpl_vars['row']->value['valor'];?>
-" objeto="<?php echo $_smarty_tpl->tpl_vars['row']->value['idReactivo'];?>
-" style="width: 100%; text-align: right"/>
-						</td>
-						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['posicion'];?>
+						<td><?php echo $_smarty_tpl->tpl_vars['row']->value['valor'];?>
 </td>
+						<td>
+							<input type="text" value="<?php echo $_smarty_tpl->tpl_vars['row']->value['posicion'];?>
+" valAnterior="<?php echo $_smarty_tpl->tpl_vars['row']->value['posicion'];?>
+" objeto="<?php echo $_smarty_tpl->tpl_vars['row']->value['idReactivo'];?>
+" style="width: 100%; text-align: right" class="posicion"/>
+							</td>
 						<td style="text-align: right">
-							<button type="button" class="btn btn-default btn-circle" action="reactivos" title="Administración de reactivos" objeto="<?php echo $_smarty_tpl->tpl_vars['row']->value['idReactivo'];?>
-"><i class="fa fa-file-code-o"></i></button>
+							<button type="button" class="btn btn-default btn-circle" action="reactivos" title="Administración de respuestas" objeto="<?php echo $_smarty_tpl->tpl_vars['row']->value['idReactivo'];?>
+"><i class="fa fa-genderless"></i></button>
 							<button type="button" class="btn btn-default btn-circle" action="modificar" title="Modificar" datos='<?php echo $_smarty_tpl->tpl_vars['row']->value['json'];?>
 '><i class="fa fa-pencil"></i></button>
 							<button type="button" class="btn btn-danger btn-circle" action="eliminar" title="Eliminar" objeto="<?php echo $_smarty_tpl->tpl_vars['row']->value['idReactivo'];?>

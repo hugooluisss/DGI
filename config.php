@@ -122,4 +122,27 @@ $conf['listaReactivos'] = array(
 	'descripcion' => 'Lista de reactivos',
 	'seguridad' => true,
 	'capa' => LAYOUT_AJAX);
+	
+/* Reactivos */
+$conf['opciones'] = array(
+	'controlador' => 'opciones.php',
+	'vista' => 'opciones/panel.tpl',
+	'descripcion' => 'Vista del panel',
+	'seguridad' => true,
+	'js' => array('opcion.class.js'),
+	'jsTemplate' => array('opciones.js'),
+	'capa' => LAYOUT_DEFECTO);
+	
+$conf['copciones'] = array(
+	'controlador' => 'opciones.php',
+	'descripcion' => 'Controlador de opciones',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
+	
+$conf['listaOpciones'] = array(
+	'controlador' => 'opciones.php',
+	'vista' => 'opciones/lista.tpl',
+	'descripcion' => 'Lista de opciones',
+	'seguridad' => true,
+	'capa' => LAYOUT_AJAX);
 ?>

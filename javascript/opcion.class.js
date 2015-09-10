@@ -1,18 +1,17 @@
-TReactivo = function(){
+TOpcion = function(){
 	var self = this;
 	
-	this.add = function(id, examen, instrucciones, valor, fn){
+	this.add = function(id, reactivo, texto, fn){
 		if (fn.before != undefined)
 			fn.before();
 			
-		$.post('?mod=creactivos&action=add', {
-				"instrucciones": instrucciones,
-				"puntos": valor,
+		$.post('?mod=copciones&action=add', {
+				"texto": texto,
 				"id": id,
-				"examen": examen
+				"reactivo": reactivo
 			}, function(data){
 				if (data.band == 'false')
-					console.log("Upps. Ocurrió un error al agregar el reactivo " + data.mensaje);
+					console.log("Upps. Ocurrió un error al agregar la opción " + data.mensaje);
 					
 				if (fn.after != undefined)
 					fn.after(data);
@@ -23,11 +22,11 @@ TReactivo = function(){
 		if (fn.before != undefined)
 			fn.before();
 			
-		$.post('?mod=creactivos&action=del', {
+		$.post('?mod=copciones&action=del', {
 				"id": id
 			}, function(data){
 				if (data.band == 'false')
-					console.log("Upps. Ocurrió un error al eliminar el reactivo " + data.mensaje);
+					console.log("Upps. Ocurrió un error al eliminar la opción " + data.mensaje);
 					
 				if (fn.after != undefined)
 					fn.after(data);
@@ -37,12 +36,12 @@ TReactivo = function(){
 	this.setPosicion = function(id, pos, fn){
 		if (fn.before !== undefined) fn.before();
 		
-		$.post('?mod=creactivos&action=setPosicion', {
+		$.post('?mod=copciones&action=setPosicion', {
 				"id": id,
 				"posicion": pos
 			}, function(data){
 				if (data.band == 'false')
-					console.log("Upps. Ocurrió un error al eliminar el reactivo " + data.mensaje);
+					console.log("Upps. Ocurrió un error al eliminar la opción" + data.mensaje);
 					
 				if (fn.after !== undefined)
 					fn.after(data);

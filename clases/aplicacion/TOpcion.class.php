@@ -121,16 +121,16 @@ class TOpcion{
 	
 	public function guardar($reactivo = ''){
 		$db = TBase::conectaDB();
-		if ($reactivo == '') return false;
-		
-		$rs = $db->Execute("select * from reactivo where idReactivo = ".$reactivo);
-		if ($rs->EOF) return false;
-		
-		if ($this->getId() == ''){
-			$rs = $db->Execute("INSERT INTO opcion(idReactivo, texto, posicion) VALUES (".$reactivo.", '', 0);");
-			if (!$rs) return false;
+		if ($reactivo <> ''){
+			$rs = $db->Execute("select * from reactivo where idReactivo = ".$reactivo);
+			if ($rs->EOF) return false;
 			
-			$this->idOpcion = $db->Insert_ID();
+			if ($this->getId() == ''){
+				$rs = $db->Execute("INSERT INTO opcion(idReactivo, texto, posicion) VALUES (".$reactivo.", '', 0);");
+				if (!$rs) return false;
+				
+				$this->idOpcion = $db->Insert_ID();
+			}
 		}
 		
 		$rs = $db->Execute("UPDATE opcion

@@ -6,12 +6,16 @@ $repositorio = "repositorio/imagenes/";
 $url_repo = $ini['sistema']['url'].$repositorio.$_GET['examen'].'/';
 
 switch($objModulo->getId()){
-	case 'reactivos':
-		$smarty->assign("examen", $_GET['examen']);
-	break;
-	case 'listaReactivos':
+	case 'opciones':
+		$smarty->assign("reactivo", $_GET['reactivo']);
+		
 		$db = TBase::conectaDB();
-		$rs = $db->Execute("select * from reactivo where idExamen = ".$_GET['examen']);
+		$rs = $db->Execute("select idExamen from reactivo where idReactivo = ".$_GET['reactivo']);
+		$smarty->assign("examen", $rs->fields['idExamen']);
+	break;
+	case 'listaOpciones':
+		$db = TBase::conectaDB();
+		$rs = $db->Execute("select * from opcion where idReactivo = ".$_GET['reactivo']);
 		
 		$datos = array();
 		while(!$rs->EOF){
@@ -24,24 +28,23 @@ switch($objModulo->getId()){
 		
 		$smarty->assign("lista", $datos);
 	break;
-	case 'creactivos':
+	case 'copciones':
 		switch($objModulo->getAction()){
 			case 'add':
-				$obj = new TReactivo($_POST['id']);
-				$instrucciones = str_replace("'", "", $_POST['instrucciones']);
-				$instrucciones = str_replace('"', '', $instrucciones);
+				$obj = new TOpcion($_POST['id']);
+				$texto = str_replace("'", "", $_POST['texto']);
+				$texto = str_replace('"', '', $texto);
 				
-				$obj->setInstrucciones($instrucciones);
-				$obj->setValor($_POST['valor']);
+				$obj->setTexto($texto);
 				
-				echo json_encode(array("band" => $obj->guardar($_POST['examen'])));
+				echo json_encode(array("band" => $obj->guardar($_POST['reactivo'])));
 			break;
 			case 'del':
-				$obj = new TReactivo($_POST['id']);
+				$obj = new TOpcion($_POST['id']);
 				echo json_encode(array("band" => $obj->eliminar()));
 			break;
 			case 'setPosicion':
-				$obj = new TReactivo($_POST['id']);
+				$obj = new TOpcion($_POST['id']);
 				$obj->setPosicion($_POST['posicion']);
 				
 				echo json_encode(array("band" => $obj->guardar()));

@@ -151,18 +151,22 @@ class TReactivo{
 	
 	public function guardar($examen = ''){
 		$db = TBase::conectaDB();
-		if ($examen == '') return false;
-		
-		$rs = $db->Execute("select * from examen where idExamen = ".$examen);
-		if ($rs->EOF) return false;
-		
-		if ($this->getId() == ''){
-			$rs = $db->Execute("INSERT INTO reactivo(idExamen, instrucciones) VALUES (".$examen.", '');");
-			if (!$rs) return false;
+		if ($examen <> ''){
+			$rs = $db->Execute("select * from examen where idExamen = ".$examen);
+			if ($rs->EOF) return false;
 			
-			$this->idReactivo = $db->Insert_ID();
+			if ($this->getId() == ''){
+				$rs = $db->Execute("INSERT INTO reactivo(idExamen, instrucciones) VALUES (".$examen.", '');");
+				if (!$rs) return false;
+				
+				$this->idReactivo = $db->Insert_ID();
+			}
 		}
 		
+		
+		if ($this->getId() == '')
+			return false;
+			
 		$rs = $db->Execute("UPDATE reactivo
 			SET
 				instrucciones = '".$this->instrucciones."',

@@ -1,7 +1,7 @@
 $(document).ready(function(){
-	$("#txtInstrucciones").wysihtml5();	
-	getListaMedios();
+	$("#txtTexto").wysihtml5();
 	getLista();
+	getListaMedios();
 	
 	$("#panelTabs li a[href=#add]").click(function(){
 		$("#frmAdd").get(0).reset();
@@ -12,55 +12,45 @@ $(document).ready(function(){
 		$('#panelTabs a[href="#listas"]').tab('show');
 	});
 	
-	$("#frmAdd").validate({
-		debug: true,
-		rules: {
-			txtInstrucciones: "required",
-			selValor: "required",
-		},
-		wrapper: 'span', 
-		messages: {
-			txtInstrucciones: "Este campo es necesario",
-			selValor: "Indica el valor en puntos"
-		},
-		submitHandler: function(form){
-			var obj = new TReactivo;
+	$("#frmAdd").submit(function(){
+		if ($("#txtTexto").val() == ''){
+			$("#txtTexto").focus();
+			alert("Ingresa un texto");
+		}else{
+			var obj = new TOpcion;
 			
-			obj.add(
-				$('#id').val(),
-				$('#examen').val(),
-				$('#txtInstrucciones').val(),
-				$('#selValor').val(),{
-					before: function(){
-						$("#frmAdd").disabled = true;
-					},
-					after: function(data){
-						$("#frmAdd").disabled = true;
-						
-						if (data.band){
-							$("#frmAdd").get(0).reset();
-							getLista();
-							$('#panelTabs a[href="#listas"]').tab('show');
-						}else
-							alert("No se pudo agregar el reactivo");
+			obj.add($("#id").val(), $("#reactivo").val(), $("#txtTexto").val(), {
+				before: function(){
+					$("#frmAdd").disabled = true;
+				},
+				after: function(data){
+					$("#frmAdd").disabled = false;
+					
+					if(data.band){
+						$("#frmAdd").get(0).reset();
+						getLista();
+						$('#panelTabs a[href="#listas"]').tab('show');
+					}else{
+						alert("Upss... no se pudo agregar la opción");
 					}
-				});
-        }
-    });
-    
-    function getLista(){
-		$.get("?mod=listaReactivos&examen=" + $("#examen").val(), function( data ) {
+				}
+			});
+		}
+	});
+	
+	function getLista(){
+		$.get("?mod=listaOpciones&reactivo=" + $("#reactivo").val(), function( data ) {
 			$("#dvLista").html(data);
 			
 			$("[action=eliminar]").click(function(){
 				if(confirm("¿Seguro?")){
-					var obj = new TReactivo;
+					var obj = new TOpcion;
 					obj.del($(this).attr("objeto"), {
 						after: function(data){
 							if (data.band)
 								getLista();
 							else
-								alert("Upps... ocurrió un error al intentar borrar el reactivo");
+								alert("Upps... ocurrió un error al intentar borrar la opción");
 						}
 					});
 				}
@@ -70,15 +60,14 @@ $(document).ready(function(){
 				var el = jQuery.parseJSON($(this).attr("datos"));
 				$('#panelTabs a[href="#add"]').tab('show');
 				
-				$('#id').val(el.idReactivo);
-				$('.wysihtml5-sandbox').contents().find('body').html(el.instrucciones);
-				$('#selValor').val(el.valor);
+				$('#id').val(el.idOpcion);
+				$('.wysihtml5-sandbox').contents().find('body').html(el.texto);
 				
-				$('#txtInstrucciones').select();
+				$('#txtTexto').select();
 			});
 			
 			$(".posicion").change(function(){
-				var obj = new TReactivo;
+				var obj = new TOpcion;
 				var el = $(this);
 				obj.setPosicion($(this).attr("objeto"), $(this).val(), {
 					before: function(){
@@ -90,17 +79,13 @@ $(document).ready(function(){
 							$(this).attr("valAnterior", el.val());
 						else{
 							el.val(el.attr("valAnterior"));
-							alert("Upps... No se pudo actualizar el valor de la posición del reactivo");
+							alert("Upps... No se pudo actualizar el valor de la posición de la opción");
 						}
 					}
 				});
 			});
 			
-			$("[action=reactivos]").click(function(){
-				location.href = "?mod=opciones&reactivo=" + $(this).attr("objeto");
-			});
-			
-			$("#tblReactivos").DataTable({
+			$("#tblopciones").DataTable({
 				"responsive": true,
 				"language": espaniol,
 				"paging": true,
@@ -111,9 +96,7 @@ $(document).ready(function(){
 			});
 		});
 	}
-
 });
-
 
 $(document).ready(function(){
 	$('#fileupload').fileupload({
